@@ -14,10 +14,10 @@ form.addEventListener("submit", (e) => {
     e.preventDefault();
     let doc;
     if (type.value === "invoice") {
-        doc = new Invoice(...values);
+        doc = new Invoice(toFrom.value, details.value, amount.valueAsNumber);
     }
     else {
-        doc = new Payment(...values);
+        doc = new Payment(toFrom.value, details.value, amount.valueAsNumber);
     }
     list.render(doc, type.value, "end");
 });
